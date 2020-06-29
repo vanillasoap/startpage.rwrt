@@ -1,5 +1,7 @@
 # startpage.rwrt
 
+![Screenshot](https://github.com/vanillasoap/startpage.rwrt/blob/master/images/Screenshot.png)
+
 ## Configuration
 
 ### index.html
