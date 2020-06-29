@@ -72,7 +72,7 @@ body {
 a {
     color: var(--color-fill);
     text-decoration: none;
-    font-size: .875rem;
+    font-size: .75rem;
     -webkit-transition: opacity .5s;
     transition: .25s;
     opacity: .8;
@@ -96,7 +96,7 @@ a:hover {
 
 h1 {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 400;
     padding-left: .35rem;
     cursor: default
