@@ -72,7 +72,7 @@ body {
 a {
     color: var(--color-fill);
     text-decoration: none;
-    font-size: .75rem;
+    font-size: .875rem;
     -webkit-transition: opacity .5s;
     transition: .25s;
     opacity: .8;
@@ -91,33 +91,32 @@ a:hover {
 .block {
     /* border-left: 1px solid var(--color-fill); */
     float: left;
-    padding: .5rem;
-    width: 6rem
+    margin-right: 3rem
 }
 
 sub {
   vertical-align: sub;
-  font-size: smaller;
+  font-size: 0.25rem;
 }
 
 h1 {
-    margin: 0;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    padding-left: .25rem;
+    margin: 0 0 0 .25rem;
     padding-bottom: 0;
     cursor: default
 }
 
 ul {
     padding: 0;
-    margin-top: 0.75rem;
-    margin-bottom: 0
+    margin-top: 0.55rem;
+    left: 0;
+    right: 0
 }
 
 ul li {
     list-style: none;
-    padding-bottom: .25rem
+    padding-bottom: .125rem
 }
 
 li img {
