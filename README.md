@@ -4,18 +4,14 @@
 ## Configuration
 ### index.html
 This is where you add your links. But don't worry, there's no HTML skills needed.
-
-There's really only two places you should take a look at: Line 44, where you set the page title, and everything below line 49, where the links go. There's some instructions in the comments, but since I'm busy writing anyways, I'll just repeat myself here.
+Links are added under `<body>` in the following format:
 
 ```
-The Section Heading. This will start a new block.
-  I
-  V
-Title
-http://www.example.com || Title || Keybinding || Icon URL
-  ^                         ^           ^             ^
-  |                         |           `---------,   `-------------------------------------,
-Where you want to go ][ What you want to see ][ Keybinding to go there fast (optional) ][ URL of image to display with link (optional) ]
+Heading Text
+http://www.example.com || Title || Keybinding
+
+Second Heading Text
+http://www.example.com || Another Title
 ```
 
 The keybindings support multi-stroke bindings, so you can use ```gm``` to go to Gmail, ```gp``` to go to Google+, and so on. But beware! Shorter keybindings will get triggered first, so if you already use ```g``` to go to Google, you'll never be able to input ```gm``` or ```gp```.
