@@ -89,7 +89,7 @@ a:hover {
 }
 
 .block {
-    border-left: 1px solid var(--color-fill);
+    /* border-left: 1px solid var(--color-fill); */
     float: left;
     padding: .5rem;
     width: 6rem
@@ -104,17 +104,20 @@ h1 {
     margin: 0;
     font-size: 1rem;
     font-weight: 400;
-    padding-left: .35rem;
+    padding-left: .25rem;
+    padding-bottom: 0;
     cursor: default
 }
 
 ul {
-    padding: 0
+    padding: 0;
+    margin-top: 0.75rem;
+    margin-bottom: 0
 }
 
 ul li {
     list-style: none;
-    padding-top: .25rem
+    padding-bottom: .25rem
 }
 
 li img {
