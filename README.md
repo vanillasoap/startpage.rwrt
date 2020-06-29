@@ -1,9 +1,7 @@
-# startpage.rwrt
-
 ![Screenshot](https://github.com/vanillasoap/startpage.rwrt/blob/master/images/Screenshot.png)
 
+# startpage.rwrt
 ## Configuration
-
 ### index.html
 This is where you add your links. But don't worry, there's no HTML skills needed.
 
