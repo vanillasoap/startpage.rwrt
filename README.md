@@ -3,7 +3,6 @@
 # startpage.rwrt
 ## Configuration
 ### index.html
-This is where you add your links. But don't worry, there's no HTML skills needed.
 Links are added under `<body>` in the following format:
 
 ```
