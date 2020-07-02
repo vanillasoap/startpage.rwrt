@@ -1,48 +1,18 @@
-/**
-    Startpage Reworked
-    ==================
-
-    by Christian Brassat,
-*/
-
-/**
-    Released under MIT License
-    
-    Copyright (c) 2010 Christian Brassat
-    <http://crshd.cc>
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-*/
-
 :root,
 html {
-    font-size: 16px;
+    font-size: 13px;
     scroll-behavior: smooth;
-    --color-bg: #00ffa2;
-    --color-fill: #004466
+    --bg: #00ffa2;
+    --fg: #004466;
+    display: table;
+    margin: 0 auto;
 }
 
 @media screen and (min-width:320px) {
 
     :root,
     html {
-        font-size: calc(16px + 6 * ((100vw - 320px)/ 680))
+        font-size: calc(13px + 6 * ((100vw - 320px) / 680))
     }
 }
 
@@ -50,15 +20,13 @@ html {
 
     :root,
     html {
-        font-size: 23px
-    }
-}
+        font-size: 16px
+    }}
 
 body {
-    background: var(--color-bg);
-    color: var(--color-fill);
-    opacity: 1;
-    padding: 3rem;
+    background-color: var(--bg);
+    color: var(--fg);
+    background-size: cover;
     font-family: "Sys", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-style: normal;
     font-weight: 300;
@@ -66,45 +34,49 @@ body {
     text-rendering: optimizeLegibility;
     text-rendering: geometricPrecision;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased
-}
-
-a {
-    color: var(--color-fill);
-    text-decoration: none;
-    font-size: .875rem;
-    -webkit-transition: opacity .5s;
-    transition: .25s;
-    opacity: .8;
-    padding: .1rem .25rem;
-    background-color: var(--color-bg)
-}
-
-a:hover {
-    opacity: 1;
-    border-radius: .25rem;
-    color: var(--color-bg);
-    background-color: var(--color-fill);
-    cursor: default;
-}
-
-.block {
-    /* border-left: 1px solid var(--color-fill); */
-    float: left;
-    margin-right: 3rem
-}
-
-sub {
-  vertical-align: sub;
-  font-size: 0.25rem;
+    -webkit-font-smoothing: antialiased;
+    display: table-cell;
+    padding-top: 25vh
 }
 
 h1 {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 400;
     margin: 0 0 0 .25rem;
     padding-bottom: 0;
     cursor: default
+}
+
+a {
+    color: var(--fg);
+    background-color: rgba(255, 255, 255, 0%);
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: .8;
+    padding: .125rem;
+    border-radius: .25rem;
+    -webkit-transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
+    transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
+}
+
+a:hover {
+    text-shadow: 1px 0 rgba(0, 0, 0, .100%);
+    border-radius: .25rem;
+    color: var(--bg);
+    background-color: var(--fg);
+    cursor: default;
+    opacity: 1;
+}
+
+.block {
+    /* border-left: 1px solid var(--fg); */
+    float: left;
+    margin-right: 2rem
+}
+
+sub a {
+    vertical-align: sub;
+    font-size: 0.25rem;
 }
 
 ul {
@@ -126,53 +98,62 @@ li img {
     vertical-align: middle
 }
 
-#searches {
-    position: absolute;
-    top: 2em;
-    right: 2em
+.search {
+position: absolute;
+float: left;
+top: 20%;
+margin-bottom: 1rem
+
 }
 
-#clock {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 2em
+  .search__text,
+  .help {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 3rem;
+    -webkit-transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
+    transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
+  }
+
+.search__text:after{
+    content: "?"
 }
 
-form {
-    margin-top: 1rem
-}
 
-form input {
-    background: #333;
-    background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#333));
-    background: -moz-linear-gradient(top, #222, #333);
-    border: 1px solid #333;
-    -webkit-box-shadow: rgba(0, 0, 0, .2) 0 1px 2px;
-    -moz-box-shadow: rgba(0, 0, 0, .2) 0 1px 2px;
-    box-shadow: rgba(0, 0, 0, .2) 0 1px 2px;
-    color: #ddd;
-    font-size: 1em
-}
+    .search__text:focus {
+    max-width: 16rem;
+  }
 
-form input:first-child {
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-right: 0
-}
+  .search__text {
+    padding: 0.75rem;
+    background-color: var(--bg);
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    color: var(--fg);
 
-form input:last-child {
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-left: 0
-}
+  }
 
-/* colours generated @ colorable.jxnblk.com/ */
+  .help {
+    height: 0;
+    margin: 1rem auto 0;
+    border-right: dashed 1px #ddd;
+    transition: height 0.2s linear;
+    text-align: left;
+    line-height: 1rem;
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    overflow: hidden;
+  }
+
+
+input,
+input:focus {
+    border: 2px solid var(--fg);
+    outline: 0;
+    -webkit-appearance: none;
+    caret-color: var(--fg);
+    caret: underscore 0s;
+    caret-animation: fade;
+    font-family: 'PragmataPro', sans-serif;
