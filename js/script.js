@@ -1,40 +1,33 @@
-/**
-	Startpage Reworked
-	==================
+/*
+    Released under MIT License
+    
+    Copyright (c) 2010 Jukka Svahn, Christian Brassat
+    <http://rahforum.biz>
+    <http://crshd.cc>
 
-	by Christian Brassat,
-	reusing code by Jukka Svahn
-*/
-
-/**
-	Released under MIT License
-	
-	Copyright (c) 2010 Jukka Svahn, Christian Brassat
-	<http://rahforum.biz>
-	<http://crshd.cc>
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-	
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE.
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
 */
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* Settings */
+/* Settings                                                                         */
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 var settings = {
     "navigation": {
         "newWindow": true
@@ -45,7 +38,7 @@ var settings = {
     },
 
     "clock": {
-        "showClock": true
+        "showClock": false
     },
 
     "animation": {
@@ -58,7 +51,7 @@ var settings = {
 };
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* Clock */
+/* Clock                                                                            */
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function updateClock() {
     var currentTime = new Date();
@@ -80,6 +73,10 @@ function updateClock() {
         .html(currentTimeString);
 }
 
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* html                                                                            */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 $(document)
     .ready(function() {
 
@@ -99,7 +96,7 @@ $(document)
         /*  Go thru Array  */
         var i;
         var count = 1;
-        var html = '';
+        var html = '<div class="flex-center">' + '';
 
         for (i in linkArray) {
 
@@ -129,8 +126,7 @@ $(document)
                 icon = lineArray[3];
             }
 
-            /*  Add to shortcuts array *\
-            \*=========================*/
+            /*  Add to shortcuts array */
             if (lineArray[2]) {
                 shortcuts[lineArray[2]] = "'" + url + "'";
             }
@@ -150,12 +146,14 @@ $(document)
         }
 
         /*  Add generated content to page  */
-        html = html + '</ul></div>';
+
+        html = html + '</ul></div>' + '</div>';
         $('body')
             .append(html);
 
-        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        /* Animation */
+
+
+        /* Animation                                                                        */
         /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
         /*  Hide lists  */
@@ -180,9 +178,9 @@ $(document)
                 });
         }
 
+
+        /* Search                                                                           */
         /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        /* Search */
-        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */        
 
         if (settings.search.ShowSearch) {
             $('body')
@@ -191,23 +189,43 @@ $(document)
             form.setAttribute("class", "search");
             form.setAttribute("id", "js-search");
             form.setAttribute("autocomplete", "off");
+
+            var pre = document.createElement("pre");
+            pre.setAttribute("class", "help");
+            pre.setAttribute("id", "js-help");
+            form.appendChild(pre);
+
+            var arrow = document.createElement("arrow");
+            arrow.setAttribute("class", "arrow");
+            pre.appendChild(arrow);
+
+            var i = document.createElement("i");
+            i.setAttribute("class", "fa fa-caret-down");
+            i.setAttribute("aria-hidden", "true");
+            arrow.append(i);
+
             var input = document.createElement("input");
             input.setAttribute("class", "search__text");
             input.setAttribute("id", "js-search-text");
-            input.setAttribute("contenteditable", "true");
+            input.setAttribute("spellcheck", "false");
             input.setAttribute("type", "text");
-            input.setAttribute("placeholder", "🔍");            
-            input.setAttribute("autofocus", "")
+            input.setAttribute("placeholder", "");
+            input.setAttribute("autofocus", "");
             form.appendChild(input);
             document.body.appendChild(form);
-            var pre = document.createElement("help")
-            help.setAttribute("class", "help");
-            help.setAttribute("id", "js-help");
 
+            var button = document.createElement("button");
+            button.setAttribute("class", "button");
+            form.appendChild(button);
+
+            var i = document.createElement("i");
+            i.setAttribute("class", "fa fa-search");
+            i.setAttribute("aria-hidden", "true");
+            button.appendChild(i);
         }
 
-        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        /* Clock */
+
+        /* Clock                                                                            */
         /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
         if (settings.clock.showClock) {
@@ -219,9 +237,10 @@ $(document)
             setInterval('updateClock()', 1000);
         }
 
+
+        /* Keybindings                                                                      */
         /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        /* Keybindings */
-        /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
         var typed = '';
         var shortcutArray = Object.keys(shortcuts);
         var typedDate = new Date();
@@ -244,8 +263,9 @@ $(document)
 
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* Search
+/* Search                                                                           */
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 $(document).ready(function() {
     var Cmdr = {
         searchForm: document.getElementById('js-search'),
@@ -266,7 +286,7 @@ $(document).ready(function() {
                     Cmdr.searchHelp.innerHTML += command.key + ': ' + command.name + '\n';
                 });
 
-                Cmdr.searchHelp.style.height = Math.ceil(Cmdr.commands.length / 2) + 'rem';
+                Cmdr.searchHelp.style.opacity = '1';
                 Cmdr.searchText.value = '';
             } else {
                 Cmdr.location = Cmdr.default+encodeURIComponent(q);
@@ -299,14 +319,15 @@ $(document).ready(function() {
             },
             {
                 key: 'c',
-                name: 'Coinbase',
-                url: 'https://www.coinbase.com'
+                name: 'Codepen',
+                url: 'https://www.codepen.io',
+                search: '/search/pens?q='
             },
             {
                 key: 'd',
                 name: 'Drive',
-                url: 'https://drive.google.com',
-                search: '/drive/search?q='
+                url: 'https://dropbox.com',
+                search: '/search/personal?path=%2F&query='
             },
             {
                 key: 'f',
@@ -333,16 +354,16 @@ $(document).ready(function() {
                 search: '/search/'
             },
             {
-                key: 'k',
-                name: 'Keep',
-                url: 'https://keep.google.com',
-                search: '/#search/text='
+                key: 'l',
+                name: 'Library Genesis²ᵐ',
+                url: 'http://gen.lib.rus.ec',
+                search: '/search.php?req='
             },
             {
                 key: 'p',
-                name: 'Product Hunt',
-                url: 'https://www.producthunt.com',
-                search: '/search?q='
+                name: 'Prisguiden',
+                url: 'https://www.prisguiden.no',
+                search: '/sok?q='
             },
             {
                 key: 'r',
@@ -369,9 +390,10 @@ $(document).ready(function() {
                 search: '/results?search_query='
             },
             {
-                key: 'Y',
-                name: 'YTS',
-                url: 'https://yts.ag'
+                key: 'R',
+                name: 'rutracker',
+                url: 'https://rutracker.org',
+                search: '/forum/tracker.php?nm='
             },
             {
                 key: '3',
@@ -385,4 +407,4 @@ $(document).ready(function() {
             },
         ]
     });
-})();
+});
