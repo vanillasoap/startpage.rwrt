@@ -1,6 +1,6 @@
 :root {
     --bg: #00ffa2;
-    --fg: #004466;
+    --fg: #002132;
 }
 
 :root,
@@ -56,7 +56,7 @@ a {
 body {
     color: var(--fg);
     background-size: cover;
-    font-family: Sys, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: Sys, Untitled Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 300;
     word-spacing: 0;
     text-rendering: optimizeLegibility;
@@ -69,8 +69,8 @@ body {
 h1 {
     font-size: 1.125rem;
     font-weight: 400;
-    margin: 0 0 0 .25rem;
-    padding-bottom: 0
+    margin: 0;
+    padding-left: 4px
 }
 
 .search__text,
@@ -114,9 +114,7 @@ sub a {
 
 ul {
     padding: 0;
-    margin-top: .55rem;
-    left: 0;
-    right: 0
+    margin-top: .5rem;
 }
 
 ul li {
@@ -149,12 +147,13 @@ li img {
 }
 
 .search__text {
+    font-family: PragmataPro, monospace;
     white-space: pre-wrap;
     text-shadow: 0 0 var(--fg);
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    max-width: 4rem;
+    max-width: 10rem;
     -webkit-transition: .4s cubic-bezier(.48, .3, .64, 1);
     transition: .4s cubic-bezier(.48, .3, .64, 1);
     z-index: 99;
@@ -169,7 +168,7 @@ li img {
 
 .search__text:focus,
 .search__text:hover {
-    max-width: 18rem
+    max-width: 16rem
 }
 
 .button {
@@ -247,6 +246,6 @@ input:focus {
     outline: 0;
     -webkit-appearance: none;
     caret-color: var(--fg);
-    caret: underscore 0s;
-    caret-animation: fade
+
+
 }
