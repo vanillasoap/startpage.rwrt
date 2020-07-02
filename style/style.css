@@ -1,18 +1,19 @@
-:root,
-html {
-    font-size: 13px;
-    scroll-behavior: smooth;
+:root {
     --bg: #00ffa2;
     --fg: #004466;
-    display: table;
-    margin: 0 auto;
+}
+
+:root,
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 @media screen and (min-width:320px) {
 
     :root,
     html {
-        font-size: calc(13px + 6 * ((100vw - 320px) / 680))
+        font-size: calc(16px + 6 * ((100vw - 320px)/ 680))
     }
 }
 
@@ -20,68 +21,100 @@ html {
 
     :root,
     html {
-        font-size: 16px
-    }}
+        font-size: 23px
+    }
+}
+
+a,
+a:hover {
+    border-radius: .25rem
+}
+
+.button,
+.search__text,
+body {
+    background-color: var(--bg)
+}
+
+.button,
+a:hover,
+h1 {
+    cursor: default
+}
+
+.help,
+body {
+    font-style: normal
+}
+
+.help,
+.search,
+a {
+    text-decoration: none
+}
 
 body {
-    background-color: var(--bg);
     color: var(--fg);
     background-size: cover;
-    font-family: "Sys", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-style: normal;
+    font-family: Sys, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 300;
     word-spacing: 0;
     text-rendering: optimizeLegibility;
     text-rendering: geometricPrecision;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    display: table-cell;
-    padding-top: 25vh
+    width: 100vw
 }
 
 h1 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 400;
     margin: 0 0 0 .25rem;
-    padding-bottom: 0;
-    cursor: default
+    padding-bottom: 0
+}
+
+.search__text,
+a {
+    font-size: .875rem;
+    color: var(--fg)
 }
 
 a {
-    color: var(--fg);
-    background-color: rgba(255, 255, 255, 0%);
-    text-decoration: none;
-    font-size: 1rem;
+    background-color: rgba(255, 255%, 255%, 0%);
     opacity: .8;
     padding: .125rem;
-    border-radius: .25rem;
-    -webkit-transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
-    transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
+    -webkit-transition: .25s cubic-bezier(.48, .3, .64, 1);
+    transition: .25s cubic-bezier(.48, .3, .64, 1)
 }
 
 a:hover {
-    text-shadow: 1px 0 rgba(0, 0, 0, .100%);
-    border-radius: .25rem;
+    text-shadow: 1px 0 rgba(0, 0%, 0%, .1%);
     color: var(--bg);
     background-color: var(--fg);
-    cursor: default;
-    opacity: 1;
+    opacity: 1
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    padding-top: 40vh
 }
 
 .block {
-    /* border-left: 1px solid var(--fg); */
     float: left;
-    margin-right: 2rem
+    margin-right: 2rem;
+    word-wrap: normal
 }
 
 sub a {
     vertical-align: sub;
-    font-size: 0.25rem;
+    font-size: .25rem
 }
 
 ul {
     padding: 0;
-    margin-top: 0.55rem;
+    margin-top: .55rem;
     left: 0;
     right: 0
 }
@@ -98,62 +131,122 @@ li img {
     vertical-align: middle
 }
 
-.search {
-position: absolute;
-float: left;
-top: 20%;
-margin-bottom: 1rem
-
+#clock {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1em
 }
 
-  .search__text,
-  .help {
+.search {
+    position: fixed;
+    bottom: 60vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.search__text {
+    white-space: pre-wrap;
+    text-shadow: 0 0 var(--fg);
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    max-width: 3rem;
-    -webkit-transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
-    transition: .25s cubic-bezier(0.48, 0.3, 0.64, 1);
-  }
-
-.search__text:after{
-    content: "?"
+    max-width: 4rem;
+    -webkit-transition: .4s cubic-bezier(.48, .3, .64, 1);
+    transition: .4s cubic-bezier(.48, .3, .64, 1);
+    z-index: 99;
+    padding: .5rem
 }
 
+.arrow,
+.help {
+    line-height: 18px;
+    position: absolute
+}
 
-    .search__text:focus {
-    max-width: 16rem;
-  }
+.search__text:focus,
+.search__text:hover {
+    max-width: 18rem
+}
 
-  .search__text {
-    padding: 0.75rem;
-    background-color: var(--bg);
-    border-radius: 1rem;
-    font-size: 1.1rem;
+.button {
+    float: left;
     color: var(--fg);
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 2px solid var(--fg);
+    border-left: 0
+}
 
-  }
-
-  .help {
-    height: 0;
-    margin: 1rem auto 0;
-    border-right: dashed 1px #ddd;
-    transition: height 0.2s linear;
+.help {
+    left: 0;
+    z-index: 1060;
+    font-size: 12px;
+    font-family: PragmataPro, monospace;
+    color: var(--bg);
+    background: var(--fg);
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    white-space: pre;
     text-align: left;
-    line-height: 1rem;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    opacity: 0;
+    display: inline-block;
     column-count: 2;
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    overflow: hidden;
-  }
+    border: 0;
+    bottom: 2rem;
+    padding: 16px;
+    border-radius: 10px;
+    -webkit-transition: .4s cubic-bezier(.48, .3, .64, 1);
+    transition: .4s cubic-bezier(.48, .3, .64, 1);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    animation: 3s cubic-bezier(.42, 0, .58, 1) infinite floating;
+    -webkit-animation: 3s cubic-bezier(.42, 0, .58, 1) infinite floating
+}
 
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0)
+    }
+
+    45%,
+    55% {
+        transform: translate3d(0, -5%, 0)
+    }
+}
+
+.arrow {
+    color: var(--fg);
+    font-size: 32px
+}
+
+.help>.arrow {
+    bottom: -18px;
+    left: 25%;
+    margin-left: -11px
+}
 
 input,
 input:focus {
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     border: 2px solid var(--fg);
+    border-right: 0;
     outline: 0;
     -webkit-appearance: none;
     caret-color: var(--fg);
     caret: underscore 0s;
-    caret-animation: fade;
-    font-family: 'PragmataPro', sans-serif;
+    caret-animation: fade
+}
