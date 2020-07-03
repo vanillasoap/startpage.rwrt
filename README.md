@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/vanillasoap/startpage.rwrt/blob/master/images/shot.png)
+![Screenshot](https://github.com/vanillasoap/startpage.rwrt/blob/master/images/demo.png)
 
 # startpage.rwrt
 ## Configuration
