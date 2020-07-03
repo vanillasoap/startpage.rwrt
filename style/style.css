@@ -97,7 +97,7 @@ a:hover {
     display: flex;
     justify-content: center;
     width: 99vw;
-    padding-top: 33vh
+    padding: 33vh 0 2rem 0
 }
 
 .block {
