@@ -1,6 +1,6 @@
 :root {
-    --bg: #00ffa2;
-    --fg: #002132;
+    --bg: #d0dbea;
+    --fg: #29489f;
 }
 
 :root,
@@ -63,14 +63,12 @@ body {
     text-rendering: geometricPrecision;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    width: 100vw
 }
 
 h1 {
     font-size: 1.125rem;
     font-weight: 400;
-    margin: 0;
-    padding-left: 4px
+    margin: 0 1.25rem 0 1.25rem;
 }
 
 .search__text,
@@ -95,15 +93,16 @@ a:hover {
 }
 
 .flex-center {
+    position: absolute;
     display: flex;
     justify-content: center;
-    width: 100vw;
-    padding-top: 40vh
+    width: 99vw;
+    padding-top: 33vh
 }
 
 .block {
+    position: relative;
     float: left;
-    margin-right: 2rem;
     word-wrap: normal
 }
 
@@ -114,12 +113,14 @@ sub a {
 
 ul {
     padding: 0;
-    margin-top: .5rem;
+    margin: .25rem 1.125rem 0 1.125rem;
+
 }
 
 ul li {
+    padding: 0;
     list-style: none;
-    padding-bottom: .125rem
+    margin-bottom: .125rem
 }
 
 li img {
@@ -137,8 +138,8 @@ li img {
 }
 
 .search {
-    position: fixed;
-    bottom: 60vh;
+    position: absolute;
+    bottom: 66vh;
     left: 50vw;
     transform: translate(-50%, -50%);
     display: flex;
