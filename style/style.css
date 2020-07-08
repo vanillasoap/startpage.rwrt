@@ -14,12 +14,15 @@ html {
   touch-action: manipulation;
   scroll-behavior: smooth;
   --fg: #29489f;
-  --bg: #d0dbea
+  --bg: #d0dbea;
+  --alpha-fg: rgba(41,72,159,0.1);
+
 }
 h1[data-theme=dark],
 html[data-theme=dark] {
   --fg: #71839d;
   --bg: #121212;
+  --alpha-fg: rgba(113,131,157,0.1);
 }
 .toggle-container {
   position: absolute;
@@ -169,15 +172,15 @@ a {
 }
 a {
   background-color: rgba(255,255%,255%,0%);
-  opacity: .8;
+  opacity: var(--alpha);
   padding: .125rem;
   -webkit-transition: .25s cubic-bezier(.48,.3,.64,1);
   transition: .25s cubic-bezier(.48,.3,.64,1)
 }
 a:hover {
   text-shadow: 1px 0 rgba(0,0%,0%,.1%);
-  color: var(--bg);
-  background-color: var(--fg);
+  color: var(--fg);
+  background-color: var(--alpha-fg);
   opacity: 1
 }
 .flex-center {
@@ -250,7 +253,7 @@ li img {
 }
 
 .search:focus-within{
--webkit-box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);
+-webkit-box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);  
 -moz-box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);
 box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);
 }
