@@ -182,7 +182,7 @@ a:hover {
   display: flex;
   justify-content: center;
   width: 99.3vw;
-  padding: 40vh 0 2rem 0
+  padding: 45vh 0 2rem 0
 }
 .block {
   position: relative;
@@ -216,7 +216,7 @@ li img {
 }
 .search {
   position: absolute;
-  bottom: 60vh;
+  bottom: 55vh;
   left: 50vw;
   transform: translate(-50%,-50%);
   display: flex;
