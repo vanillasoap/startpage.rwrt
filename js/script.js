@@ -175,7 +175,7 @@ $(document).ready(() => {
     button.setAttribute('class', 'button');
     form.appendChild(button);
     var i = document.createElement('i');
-    i.setAttribute('class', 'fa fa-search');
+    i.setAttribute('class', 'fal fa-search fa-sm');
     i.setAttribute('aria-hidden', 'true');
     button.appendChild(i);
   }
@@ -368,4 +368,8 @@ $(document).ready(() => {
       document.documentElement.classList.remove("transition");
     }, 1000);
   };
+});
+// Autofocus search on-load
+$(function() {
+    $("input").focus();
 });
