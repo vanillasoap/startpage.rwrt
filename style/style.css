@@ -39,8 +39,11 @@ label {
   height: 22px;
   background: var(--fg);
   float: left;
-  border-radius: 100px;
+  border-radius: 22px;
   position: relative;
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 label:after {
   content: '';
@@ -221,9 +224,13 @@ li img {
   transform: translate(-50%,-50%);
   display: flex;
   justify-content: center;
+  border-radius: 10px;
   align-items: center;
+  -webkit-transition: .3s cubic-bezier(.48,.3,.64,1);
+  transition: .3s cubic-bezier(.48,.3,.64,1);
 }
 .search__text {
+  background: transparent;
   font-family: PragmataPro,monospace;
   white-space: pre-wrap;
   text-shadow: 0 0 var(--fg);
@@ -241,11 +248,19 @@ li img {
   line-height: 18px;
   position: absolute
 }
+
+.search:focus-within{
+-webkit-box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);
+-moz-box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);
+box-shadow: 0px 0px 10px -1px rgba(41,72,159,0.5);
+}
+
 .search__text:focus,
 .search__text:hover {
   max-width: 16rem
 }
 .button {
+  background: transparent;
   font-size: 18px;
   z-index: 99;
   float: left;
