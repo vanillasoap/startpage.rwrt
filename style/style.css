@@ -24,7 +24,7 @@ html[data-theme=dark] {
 .toggle-container {
   position: absolute;
   display: block;
-  padding-top: 95vh;
+  padding-top: 93vh;
   left:50vw;
 }
 input[type=checkbox] {
