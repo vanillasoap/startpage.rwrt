@@ -146,37 +146,37 @@ $(document).ready(() => {
 
   // Search
   if (settings.search.ShowSearch) {
-    $('body').append(form);
-    var form = document.createElement('form');
-    form.setAttribute('class', 'search');
-    form.setAttribute('id', 'js-search');
-    form.setAttribute('autocomplete', 'off');
-    const pre = document.createElement('pre');
-    pre.setAttribute('class', 'help');
-    pre.setAttribute('id', 'js-help');
+    $("body").append(form);
+    var form = document.createElement("form");
+    form.setAttribute("class", "search");
+    form.setAttribute("id", "js-search");
+    form.setAttribute("autocomplete", "off");
+    const pre = document.createElement("pre");
+    pre.setAttribute("class", "help");
+    pre.setAttribute("id", "js-help");
     form.appendChild(pre);
-    const arrow = document.createElement('arrow');
-    arrow.setAttribute('class', 'arrow');
+    const arrow = document.createElement("arrow");
+    arrow.setAttribute("class", "arrow");
     pre.appendChild(arrow);
-    var i = document.createElement('i');
-    i.setAttribute('class', 'fa fa-caret-down');
-    i.setAttribute('aria-hidden', 'true');
+    var i = document.createElement("i");
+    i.setAttribute("class", "fa fa-caret-down");
+    i.setAttribute("aria-hidden", "true");
     arrow.append(i);
-    const input = document.createElement('input');
-    input.setAttribute('class', 'search__text');
-    input.setAttribute('id', 'js-search-text');
-    input.setAttribute('spellcheck', 'false');
-    input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', '');
-    input.setAttribute('autofocus', '');
+    const input = document.createElement("input");
+    input.setAttribute("class", "search__text");
+    input.setAttribute("id", "js-search-text");
+    input.setAttribute("spellcheck", "false");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "Search the web");
+    input.setAttribute("autofocus", "");
     form.appendChild(input);
     document.body.appendChild(form);
-    const button = document.createElement('button');
-    button.setAttribute('class', 'button');
+    const button = document.createElement("button");
+    button.setAttribute("class", "button");
     form.appendChild(button);
-    var i = document.createElement('i');
-    i.setAttribute('class', 'fal fa-search fa-sm');
-    i.setAttribute('aria-hidden', 'true');
+    var i = document.createElement("i");
+    i.setAttribute("class", "fal fa-search fa-sm");
+    i.setAttribute("aria-hidden", "true");
     button.appendChild(i);
   }
   const toggle =
@@ -370,6 +370,6 @@ $(document).ready(() => {
   };
 });
 // Autofocus search on-load
-$(function() {
-    $("input").focus();
+$(function () {
+  $("input").focus();
 });
