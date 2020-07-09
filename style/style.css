@@ -43,10 +43,6 @@ input {
   border-top-left-radius: 10px;
   caret-color: var(--fg);
 }
-input:checked + label,
-label {
-  background: var(--fg);
-}
 ul,
 ul li {
   padding: 0;
@@ -170,7 +166,7 @@ a {
 a:hover {
   opacity: 1;
   background-color: var(--alpha-fg);
-  text-shadow: 1px 0 rgba(0, 0%, 0%, 0.1%);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
   cursor: default;
 }
 .flex-center {
@@ -296,8 +292,9 @@ li img {
   letter-spacing: normal;
   font-size: 12px;
   color: var(--bg);
-  -o-transition: 3s cubic-bezier(0.42, 0, 0.58, 1) infinite floating;
-  transition: 0.4s cubic-bezier(0.48, 0.3, 0.64, 1);
+  -o-transition: 3s cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transition: 0.4s cubic-bezier(0.48, 0.3, 0.64, 1);
+  -moz-transition: 0.4s cubic-bezier(0.48, 0.3, 0.64, 1);
   -moz-animation: 3s cubic-bezier(0.42, 0, 0.58, 1) infinite floating;
   -webkit-animation: 3s cubic-bezier(0.42, 0, 0.58, 1) infinite floating;
   animation: 3s cubic-bezier(0.42, 0, 0.58, 1) infinite floating;
