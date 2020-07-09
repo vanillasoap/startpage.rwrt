@@ -149,6 +149,7 @@ body {
   font-smoothing: antialiased;
   text-rendering: geometricPrecision;
   text-rendering: optimizeLegibility;
+  font-weight: 300;
 }
 h1 {
   margin: 0 1.25rem;
