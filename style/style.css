@@ -34,16 +34,16 @@ body {
   font-family: PragmataPro, SF mono, monospace;
 }
 html {
-  --alpha-fg: rgba(113, 131, 157, 0.1);
+  --alpha-fg: rgba(169, 166, 174, 0.1);
   --bg: #121212;
-  --fg: #71839d;
+  --fg: #a9a6ae;
   scroll-behavior: smooth;
   touch-action: manipulation;
 }
 html[data-theme="light"] {
-  --alpha-fg: rgba(41, 72, 159, 0.1);
-  --bg: #d0dbea;
-  --fg: #29489f;
+  --alpha-fg: rgba(66, 65, 66, 0.1);
+  --bg: #a9a6ae;
+  --fg: #424142;
 }
 .toggle-container {
   display: block;
@@ -261,7 +261,7 @@ li img {
   position: absolute;
 }
 .search:focus-within {
-  box-shadow: 0 0 10px -1px rgba(41, 72, 159, 0.5);
+  box-shadow: 0 0 10px -1px rgba(169, 166, 174, 0.3);
 }
 .search__text:focus,
 .search__text:hover {
