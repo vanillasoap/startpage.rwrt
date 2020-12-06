@@ -211,10 +211,10 @@ li img {
 }
 .search {
   border-radius: 10px;
-  bottom: 55vh;
+  bottom: 55%;
   display: flex;
   justify-content: center;
-  left: 50vw;
+  left: 50%;
   transform: translate(-50%, -50%);
   transition: 0.3s cubic-bezier(0.48, 0.3, 0.64, 1);
 }
